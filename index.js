@@ -9,7 +9,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 // middleware------------------>
-app.use(cors({origin:"*",}));
+app.use(cors({origin:"https://docs-y6mr.onrender.com", credentials: true,}));
 app.use(cookieParser());
 app.use(express.json()); // this is middleware
 app.use("/api", router); // this routes
