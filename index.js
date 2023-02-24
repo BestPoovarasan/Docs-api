@@ -9,10 +9,15 @@ const cors = require("cors");
 require("dotenv").config();
 
 // middleware------------------>
-app.use(cors({credentials: true, origin:"*"}));
+app.use(cors({origin:"*", credentials: true,}));
 app.use(cookieParser());
 app.use(express.json()); // this is middleware
 app.use("/api", router); // this routes
+
+// <---------sample Home page------------>
+app.get('/', (req, res) => {
+  res.send('THIS IS DOCS API!!')
+});
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
