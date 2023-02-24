@@ -6,7 +6,6 @@ dotenv.config();
 const router = require("./routes/user_routes");
 const cookieParser = require("cookie-parser")
 const cors = require("cors");
-require("dotenv").config();
 
 // middleware------------------>
 app.use(
@@ -23,7 +22,10 @@ app.use("/api", router); // this routes
 //   res.send('THIS IS DOCS API!!')
 // });
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 .then(() => {
     console.log("Successfully connected to MongoDB Atlas!");
   })
