@@ -73,7 +73,7 @@ const verifytoken = (req, res, next) => {
         if (error) {
             return res.status(400).json({ message: "Invaild Token" })
         }
-        console.log(user.id);
+        // console.log(user.id);
         req.id = user.id;
     });
     next();
